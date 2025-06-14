@@ -3,43 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | WebDemo</title>
+    <title>About</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script src="about.js" defer></script>
   </head>
   <body>
     <nav class="navbar">
-      <div class="container">
+      <div class="navbar-container">
         <a href="/index.html" class="logo">portfolio</a>
 
         <ul class="nav">
-          <li><a href="/index.html">home</a></li>
           <li><a href="/main.html">Assignment</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/team.html">Team</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Contact Section -->
-    <section class="main">
-      <div class="container contact-container">
-        <div class="contact-image">
-          <img src="contact-image/profile.jpg" alt="프로필 사진" />
-        </div>
+    <section class="profile">
+      <img
+        src="team-profile/천서연.jpg"
+        alt="서연의 사진"
+        class="profile-photo"
+      />
+      <div class="info">
+        <h1>서연</h1>
+        <ul>
+          <li><strong>나이:</strong> 22세</li>
+          <li><strong>생일:</strong> 2004년 8월 28일</li>
+          <li><strong>번호:</strong> 010-8513-3642</li>
+          <li><strong>이메일:</strong> seoyoen3642@naver.com</li>
+          <li><strong>인스타그램:</strong> @sy.hievm</li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="contact-info">
-          <h1>About Me</h1>
-          <h3>천서연</h3>
-          <p><strong>이메일:</strong> seoyeon3642@naver.com</p>
-          <p><strong>나이:</strong> 22살 (2004)</p>
-          <p><strong>생일:</strong> 2004.08.28</p>
-          <p>
-            <strong>깃허브:</strong>
-            <a href="https://github.com/dashboard" target="_blank">GitHub</a>
-          </p>
-        </div>
+    <section class="timeline">
+      <h2>타임라인</h2>
+      <div id="timeline-buttons">
+        <!-- 년도 버튼들 JS가 여기에 넣음 -->
+      </div>
+      <div id="timeline-detail" class="timeline-content">
+        <!-- 선택한 년도 내용이 여기 나타남 -->
       </div>
     </section>
   </body>

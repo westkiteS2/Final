@@ -1,444 +1,648 @@
-/* ===================== 내비게이션 바 스타일 ===================== */
+/* 전체 배경 */
 .navbar {
-  background-color: #153c06;
-  color: white;
-  padding: 20px 0;
-  transition: background-color 0.3s, box-shadow 0.3s; /* 부드럽게 전환 */
+  background-color: #193d1b;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  margin-bottom: 40px;
 }
 
-.navbar .container {
+/* 로고 + 메뉴 전체 감싸는 컨테이너 */
+.navbar .navbar-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  height: 60px;
+  box-sizing: border-box;
 }
 
+/* 로고 왼쪽 고정 */
 .navbar .logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #a8ffb3;
   text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
 }
 
+.navbar .logo:hover {
+  color: #fff;
+}
+
+/* 메뉴 리스트: 오른쪽 정렬 */
 .navbar .nav {
-  list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* 메뉴 링크 */
 .navbar .nav li a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar .nav li a:hover {
-  text-decoration: underline;
+  color: #a8ffb3;
+  border-bottom: 2px solid #a8ffb3;
 }
 
-/*========== index 페이지 ==========*/
-
-/* 타이핑 텍스트 스타일 */
+/* intro 섹션 */
 .intro-section {
-  font-size: 2.2rem;
+  display: flex; /* 플렉스 박스로 변경 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 100vh; /* 화면 전체 높이 */
+  font-size: 2.8rem;
+  color: #222;
   font-weight: 700;
+  font-family: 'Pretendard', 'Noto Sans KR', 'Segoe UI', sans-serif;
+  user-select: none;
+  white-space: nowrap;
+  padding: 0 1rem;
+  box-sizing: border-box; /* 패딩과 높이 계산 포함 */
+}
+
+/* 타이핑 텍스트 */
+#text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  white-space: pre-wrap;
+  display: inline;
+}
+
+/* 깜빡이는 커서 애니메이션 */
+.cursor {
+  display: inline-block;
+  font-weight: 700;
+  color: #222;
+  animation: blink 1s step-start infinite;
+  user-select: none;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ==== main.html ====*/
+
+/* 전체 컨테이너 스타일 */
+#assignment-list {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  text-align: center;
-  margin-top: 80px;
-  user-select: none; /* 글자 드래그 방지 (선택 막기) */
 }
 
-/* 깜빡이는 커서 스타일 */
-.cursor {
-  display: inline-block;
-  width: 2px;
-  background-color: #333;
-  margin-left: 3px;
-  animation: blink 1s steps(2, start) infinite;
-  vertical-align: bottom;
+/* 선택 박스 스타일 */
+select {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem 1.5rem 0;
+  font-size: 1rem;
+  border: 1.8px solid #4caf50;
+  border-radius: 6px;
+  background-color: #f9fff9;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
-/* 커서 깜빡임 애니메이션 */
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
+select:hover,
+select:focus {
+  border-color: #2e7d32;
+  outline: none;
 }
 
-.intro-section {
-  width: 100%;
-  text-align: center; /* 텍스트와 커서 모두 가운데 정렬 */
-  margin-top: 80px;
-}
-
-#text {
-  font-size: 2.2rem; /* 텍스트 크기 */
-  font-weight: 700; /* 굵게 */
-  color: #333; /* 텍스트 색 */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  user-select: none; /* 드래그 방지 */
-}
-
-.cursor {
-  display: inline-block;
-  width: 2px;
-  height: 2.4rem; /* 텍스트 높이에 맞춰서 */
-  background-color: #333; /* 커서 색 */
-  margin-left: 4px;
-  vertical-align: bottom;
-  animation: blink 1s steps(2, start) infinite;
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
-/* ===================== Assignment 페이지 ===================== */
-
-/*  assignment 전체 섹션 영역 스타일 설정 */
-.assignment {
-  padding: 3rem 1rem; /* 위아래 3rem, 좌우 1rem의 여백 설정 */
-}
-
-/*  과제 제목 스타일 (h2) */
-.assignment h2 {
-  text-align: center; /* 가운데 정렬 */
-  margin-bottom: 2rem; /* 제목 아래에 2rem 간격 추가 */
-}
-
-/*  월별 과제 박스 (월 제목 + 링크 리스트) 스타일 */
+/* 월별 박스 */
 .month-box {
-  background-color: white; /* 박스 배경은 흰색 */
-  border-radius: 10px; /* 모서리를 둥글게 처리 */
-  padding: 1.5rem; /* 박스 내부 여백 설정 */
-  margin-bottom: 1.5rem; /* 박스 간 간격 설정 */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 효과 */
-}
-
-/*  월 제목 스타일 (예: 📘 3월) */
-.month-box h3 {
-  margin-top: 0; /* 위쪽 마진 제거 */
-  color: #2c3e50; /* 진한 네이비 색상 */
-}
-
-/*  과제 리스트 스타일 (ul) */
-.month-box ul {
-  list-style: none; /* 리스트 기본 점 제거 */
-  padding-left: 0; /* 왼쪽 패딩 제거 */
-}
-
-/*  개별 과제 항목 (li) */
-.month-box li {
-  margin-bottom: 0.5rem; /* 항목 간 여백 */
-}
-
-/*  과제 링크 스타일 (anchor 태그) */
-.month-box a {
-  text-decoration: none; /* 밑줄 제거 */
-  color: #2980b9; /* 파란 계열 텍스트 색상 */
-  font-weight: 500; /* 중간 굵기 */
-}
-
-/*  마우스 오버 시 링크 효과 */
-.month-box a:hover {
-  text-decoration: underline; /* 밑줄 추가 */
-}
-
-/*  "등록된 과제가 없습니다" 문구를 위한 클래스 */
-.no-task {
-  color: #888; /* 흐린 회색 */
-  font-style: italic; /* 이탤릭체로 표현 */
-  margin-top: 0.5rem; /* 위쪽 마진 약간 추가 */
-}
-
-/* ===================== 기업별 감상 후기 페이지 ===================== */
-
-/*  전체 리뷰 섹션 영역 설정 */
-.review-section {
-  padding: 3rem 1rem; /* 위아래 여백 3rem, 좌우 여백 1rem */
-  background-color: #f9f9f9; /* 옅은 회색 배경 */
-}
-
-/*  리뷰 제목 스타일 */
-.review-section h2 {
-  text-align: center; /* 가운데 정렬 */
-  margin-bottom: 1rem; /* 아래쪽 여백 */
-  font-size: 2rem; /* 제목 글자 크기 */
-  color: #2c3e50; /* 네이비 톤 텍스트 색상 */
-}
-
-/*  설명 문단 스타일 (p 태그) */
-.review-section p {
-  text-align: center; /* 가운데 정렬 */
-  font-size: 1rem; /* 본문 크기 */
-  color: #555; /* 약간 어두운 회색 */
-  margin-bottom: 2rem; /* 문단 아래 여백 */
-}
-
-/*  기업 링크 리스트 전체 영역 */
-.company-links {
-  list-style: none; /* 기본 리스트 점 제거 */
-  padding-left: 0; /* 왼쪽 여백 제거 */
-  display: flex; /* 가로 정렬을 위해 flex 사용 */
-  flex-direction: column; /* 세로 정렬 유지 */
-  align-items: center; /* 가운데 정렬 */
-  gap: 1rem; /* 항목 간 간격 */
-}
-
-/*  개별 기업 항목 (li) */
-.company-links li {
-  width: 100%; /* 전체 너비 */
-  max-width: 400px; /* 최대 너비 제한 */
-  text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/*  기업 링크 스타일 (a 태그) */
-.company-links a {
-  display: block; /* 블록 요소로 만들어 넓게 클릭 가능 */
-  padding: 1rem 1.5rem; /* 내부 여백 설정 */
-  background-color: #ffffff; /* 흰 배경 */
-  border-radius: 8px; /* 둥근 테두리 */
-  text-decoration: none; /* 밑줄 제거 */
-  color: #2980b9; /* 파란 계열 텍스트 색상 */
-  font-weight: bold; /* 글자 굵게 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 */
-  transition: background-color 0.3s, transform 0.2s; /* 부드러운 효과 */
-}
-
-/*  마우스 오버 시 효과 */
-.company-links a:hover {
-  background-color: #ecf0f1; /* 연한 회색 배경으로 변경 */
-  transform: translateY(-3px); /* 살짝 위로 떠오르는 느낌 */
-}
-
-/* ===================== 기업별 상세 후기 페이지 ===================== */
-
-/*  리뷰 섹션 전체 설정 */
-.company-review {
-  padding: 4rem 1rem; /* 넉넉한 여백 */
-  background-color: #ffffff; /* 흰 배경 */
-}
-
-/*  제목 스타일 */
-.company-review h2 {
-  font-size: 2rem;
-  color: #34495e; /* 진한 회색 톤 */
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/*  작성일 정보 스타일 */
-.review-date {
-  font-size: 0.9rem;
-  color: #888; /* 연한 회색 */
-  text-align: center;
+  background-color: #f0f9f1;
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 6px 14px rgba(46, 125, 50, 0.15);
   margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
 }
 
-/*  후기 본문 스타일 */
-.review-content {
-  max-width: 700px; /* 본문 최대 너비 제한 */
-  margin: 0 auto 2rem auto; /* 가운데 정렬 및 아래 여백 */
-  font-size: 1.1rem;
-  line-height: 1.8; /* 줄 간격 */
-  color: #2c3e50;
+.month-box:hover {
+  box-shadow: 0 10px 22px rgba(46, 125, 50, 0.3);
 }
 
-/*  뒤로가기 버튼 스타일 */
-.back-button {
-  display: inline-block;
-  background-color: #3498db; /* 파란색 배경 */
-  color: #fff; /* 흰 글자 */
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
+/* 제목 스타일 */
+.month-box h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2e7d32;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.3rem;
+}
+
+/* 리스트 스타일 */
+.month-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.month-box li {
+  margin-bottom: 0.9rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* 링크 스타일 */
+.month-box a {
+  color: #388e3c;
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
-/* 📌마우스 오버 시 버튼 스타일 변화 */
-.back-button:hover {
-  background-color: #2980b9;
-}
-
-/* ===================== Contact Page 스타일 ===================== */
-
-/*  Contact 페이지의 메인 섹션 설정 */
-.main {
-  padding: 4rem 1rem; /* 전체 여백 */
-  background-color: #f9f9f9; /* 밝은 배경색 */
-}
-
-/*  Contact 페이지 레이아웃: 이미지와 텍스트를 가로 정렬 */
-.contact-container {
-  display: flex;
-  flex-wrap: wrap; /* 반응형 대비 줄바꿈 허용 */
-  gap: 2rem; /* 이미지와 텍스트 사이 간격 */
-  justify-content: center; /* 가운데 정렬 */
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/*  프로필 이미지 설정 */
-.contact-image img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover; /* 비율 유지 자르기 */
-  border-radius: 50%; /* 동그랗게 */
-  border: 5px solid #ddd; /* 테두리 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
-}
-
-/* 텍스트 정보 박스 스타일 */
-.contact-info {
-  max-width: 500px;
-}
-
-/*  이름 섹션 제목 스타일 */
-.contact-info h1 {
-  font-size: 2.2rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-/*  이름 */
-.contact-info h3 {
-  font-size: 1.5rem;
-  color: #34495e;
-  margin-bottom: 1rem;
-}
-
-/*  정보 항목들 (이메일, 나이, 생일 등) */
-.contact-info p {
-  font-size: 1.1rem;
-  color: #555;
-  margin: 0.4rem 0;
-}
-
-/*  링크 텍스트 (깃허브 링크) */
-.contact-info a {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/*  링크에 마우스를 올렸을 때 효과 */
-.contact-info a:hover {
+.month-box a:hover {
+  color: #1b5e20;
   text-decoration: underline;
 }
 
-/*company1~5*/
-
-/* 리뷰 세부 페이지 스타일 */
-.review-detail {
-  margin: 20px 0;
+/* '등록된 과제가 없습니다' 문구 */
+.no-task {
+  font-style: italic;
+  color: #6b7a6b;
+  font-size: 1.1rem;
+  padding-left: 0.3rem;
 }
 
-.review-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
+/* 화면 가로 중앙 정렬 및 최대 너비 제한 */
+.container {
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+
+  text-align: left; /* 텍스트 좌측 정렬 명시 */
 }
 
-.review-image img {
-  width: 500px; /* 이미지 크기 조정 */
-  height: auto;
-  float: left; /* 왼쪽 정렬 */
-  margin-right: 20px; /* 텍스트와 간격 */
-  border-radius: 8px; /* 둥근 모서리 */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+/* 선택 박스 전체 컨테이너 스타일 */
+.selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem; /* 항목 사이 간격 */
+  margin-bottom: 2rem; /* 아래 여백 */
+  flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
 }
 
-.review-text h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.review-text p {
+/* 라벨 스타일 */
+.selector label {
+  font-weight: 600;
+  color: #193d1b;
   font-size: 1rem;
-  line-height: 1.6;
+}
+
+/* select 박스 스타일 */
+.selector select {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.8px solid #a8ffb3;
+  background-color: #f9fff7;
+  color: #193d1b;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.selector select:hover,
+.selector select:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* 과제 리스트 컨테이너 디자인 */
+#assignment-list {
+  max-width: 600px; /* 최대 넓이 제한 */
+  margin: 0 auto; /* 수평 중앙 정렬 */
+  background-color: #f0fff4; /* 연한 연두 배경 */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #193d1b;
+}
+
+/* 월 제목 스타일 (과제 리스트 내 h3) */
+#assignment-list h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 과제 리스트 ul 스타일 */
+#assignment-list ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+/* 과제 리스트 li 스타일 */
+#assignment-list li {
+  display: inline-block; /* 가로 정렬 */
+  margin: 0 1rem 0.7rem 1rem; /* 좌우 간격 */
+  font-size: 1.1rem;
+}
+
+/* 과제 링크 a 스타일 */
+#assignment-list a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#assignment-list a:hover {
+  color: #1c639e;
+  text-decoration: underline;
+}
+
+/* 등록된 과제가 없을 때 문구 */
+.no-task {
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/*==== about ====*/
+
+/* =====about======*/
+
+/* 기본 폰트 및 배경 설정 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* 프로필 영역 */
+.profile {
+  margin-top: 40px; /* 네비바 아래 공간 확보 */
+  /* 기존 스타일 그대로 유지 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-height: 300px;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px; /* 아래 여백으로 변경 */
+}
+
+.info h1 {
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
-.review-text ul {
-  padding-left: 20px;
+.info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* 중앙 정렬 유지 */
 }
 
-.review-text li {
+.info li {
   margin-bottom: 8px;
 }
 
-.review-text a {
-  color: #007bff;
-  text-decoration: none;
+.timeline {
+  padding: 30px;
+
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.review-text a:hover {
-  text-decoration: underline;
+.timeline h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #193d1b;
+  text-align: center;
 }
 
-.back-button {
+/* 년도 버튼 모양 */
+#timeline-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timeline-year {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #a1b89a; /* 연초록 */
   color: white;
-  text-decoration: none;
-  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  border: none;
+}
+
+/* 누른 년도 버튼 - 투명하게 눌린 느낌 */
+.timeline-year.active {
+  background-color: #193d1b;
+  opacity: 0.6; /* 투명도 조절 */
+  pointer-events: none; /* 이미 선택된 버튼 클릭 방지 */
+}
+
+/* 마우스 올렸을 때 색 강조 */
+.timeline-year:not(.active):hover {
+  background-color: #193d1b;
+}
+
+/* 내용 표시 영역 - 박스 느낌 제거 */
+#timeline-detail {
+  color: #193d1b;
+  font-weight: 500;
+  min-height: 60px;
+  line-height: 1.4;
+  text-align: center;
+  background: none; /* 박스 배경 없애기 */
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+
+/* ===================== About Page 스타일 ===================== */
+
+/* 프로필 영역 */
+.profile {
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬로 변경 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 텍스트도 가운데 정렬 */
+  min-height: 300px; /* 충분한 높이 지정 (필요시 조절) */
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px; /* 아래 여백으로 변경 */
+}
+
+.info h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* 중앙 정렬 유지 */
+}
+
+.info li {
+  margin-bottom: 8px;
+}
+
+.timeline {
+  padding: 30px;
+
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.timeline h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #193d1b;
+  text-align: center;
+}
+
+/* 년도 버튼 모양 */
+#timeline-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timeline-year {
+  display: inline-block;
+  background-color: #a1b89a; /* 연초록 */
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  border: none;
+}
+
+/* 누른 년도 버튼 - 투명하게 눌린 느낌 */
+.timeline-year.active {
+  background-color: #193d1b;
+  opacity: 0.6; /* 투명도 조절 */
+  pointer-events: none; /* 이미 선택된 버튼 클릭 방지 */
+}
+
+/* 마우스 올렸을 때 색 강조 */
+.timeline-year:not(.active):hover {
+  background-color: #193d1b;
+}
+
+/* 내용 표시 영역 - 박스 느낌 제거 */
+#timeline-detail {
+  color: #193d1b;
+  font-weight: 500;
+  min-height: 60px;
+  line-height: 1.4;
+  text-align: center;
+  background: none; /* 박스 배경 없애기 */
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+
+/*=== contact ==== */
+/* 전체 화면 높이 섹션 설정 */
+.slide-section {
+  height: 100vh; /* 화면 전체 높이 */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* 섹션 내 스크롤 가능 */
+  background-color: #fff; /* 흰색 배경 고정 */
+  color: #fff; /* 흰색 글씨 고정 */
+  font-weight: 500;
+
+  /* 텍스트 중앙 정렬 */
+  text-align: center;
+
+  /* 마우스 오버 시 배경색 변하지 않게 */
+  transition: none;
+
+  /* flexbox 추가 */
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수평 중앙 정렬 */
+
+  transition: none;
+}
+.slide-section:hover {
+  background-color: #fff; /* 흰색 고정 */
+}
+
+/* 문제 박스 스타일 */
+.problem-box {
+  border: 1.5px solid #a8ffb3;
+  border-radius: 12px;
+  margin: 20px auto; /* 좌우 중앙 정렬 */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(24, 61, 27, 0.15);
+  background-color: #fff; /* 흰색 배경 고정 */
+  max-width: 700px; /* 적당한 너비 제한 */
+  transition: box-shadow 0.3s ease;
+}
+
+.problem-box:hover {
+  /* 색상 변화 없이 box-shadow만 살짝 줌 */
+  box-shadow: 0 8px 16px rgba(24, 61, 27, 0.25);
+  background-color: #fff; /* 배경 고정 */
+}
+
+/* 제목 버튼 스타일 */
+.toggle-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #193d1b;
+  color: #fff; /* 글씨 흰색 고정 */
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  text-align: center; /* 제목 중앙 정렬 */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  user-select: none;
+  border-radius: 12px 12px 0 0;
+  box-shadow: inset 0 -3px 0 #a8ffb3;
+}
+
+.toggle-btn:hover {
+  background-color: #193d1b; /* hover 시 배경색 변화 없음 */
+  color: #fff; /* 글씨 색 변화 없음 */
+  box-shadow: inset 0 -3px 0 #a8ffb3;
+}
+
+/* 문제 내용 숨김 */
+.problem-content {
+  max-height: 300px; /* max-height 줄임 (너무 커서 스크롤 넘어가는 문제 해결) */
+  overflow-y: auto; /* 내용 스크롤 가능 */
+  transition: max-height 0.5s ease, padding 0.4s ease;
+  background-color: #f4fff7;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  border-top: 2px solid #a8ffb3;
+  color: #193d1b;
   font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0 0 12px 12px;
+
+  /* 기본은 닫힌 상태처럼 보이도록 */
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
-.back-button:hover {
-  background-color: #0056b3;
+/* 펼쳐졌을 때 패딩 추가 및 max-height 늘림 */
+.problem-content.open {
+  max-height: 300px; /* 최대 높이 제한 (스크롤 가능) */
+  padding: 16px 20px;
+  overflow-y: auto;
 }
 
-/* 반응형 디자인 */
-@media screen and (max-width: 768px) {
-  .review-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .review-image {
-    margin-bottom: 20px;
-  }
-
-  .review-image img {
-    width: 150px; /* 작은 화면에서 이미지 크기 조정 */
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .review-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .review-text p {
-    font-size: 0.9rem;
-  }
+/* 문제 내용 내 이미지 */
+.problem-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(24, 61, 27, 0.15);
 }
 
 /* 기본 레이아웃 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #fff; /* 전체 배경 흰색 */
+  margin: 0;
+  padding: 0;
+  color: #193d1b;
+  text-align: center; /* 본문 전체 중앙 정렬 */
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #193d1b;
+  text-align: center; /* 제목 중앙 정렬 */
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 28px;
+  color: #193d1b;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+  text-align: center; /* 제목 중앙 정렬 */
+}
+
+/*team*/
+/* 기본 레이아웃 설정 */
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background-color: #f9f9f9;
@@ -446,6 +650,7 @@ body {
   padding: 0;
 }
 
+/* 컨테이너 중앙 정렬 및 너비 설정 */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -453,6 +658,7 @@ body {
   text-align: center;
 }
 
+/* 제목 스타일 */
 h1 {
   font-size: 36px;
   margin-bottom: 10px;
@@ -462,103 +668,82 @@ h2 {
   font-size: 24px;
   margin-bottom: 30px;
   color: #666;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  cursor: pointer; /* 클릭 가능 표시 */
+  user-select: none;
 }
 
-h2:hover {
-  color: #333;
+/* 네비바 아래 ‘프로젝트 팀’ 제목과 네비 사이 여백 */
+.container h1 {
+  margin-top: 80px;
 }
 
-/* 팀원 목록 */
+/* 팀원 목록 스타일 */
 .team-members {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
   padding: 0;
   list-style: none;
+
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
 }
 
+/* 토글됐을 때 보이도록 */
 .team-members.active {
-  max-height: 2000px;
   opacity: 1;
+  /* height는 JS에서 설정 */
 }
 
+/* 개별 팀원 박스 스타일 */
 .team-members li {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 220px;
-  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.team-members li img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px 16px 0 0;
+.team-members li:hover {
+  transform: translateY(-8px);
 }
 
-.name {
+/* 프로필 이미지 스타일 */
+.team-members img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* 이름 */
+.team-members .name {
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-.links a {
+/* 링크 버튼 */
+.team-members .links a {
   display: inline-block;
-  margin: 5px 10px;
-  color: #0077cc;
+  margin: 5px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: white;
+  background-color: #5c8df6;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
+  transition: background-color 0.2s;
 }
 
-.links a:hover {
-  color: #005fa3;
-}
-
-@media (max-width: 768px) {
-  .team-members li {
-    width: 90%;
-  }
-}
-
-/* ---------- 미디어 쿼리: 모바일 화면 대응 ---------- */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar .nav {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .navbar .nav li {
-    display: block;
-  }
-
-  .navbar .logo {
-    margin-bottom: 10px;
-  }
-
-  .navbar .nav li a {
-    padding: 12px 0;
-    text-align: left;
-    font-size: 18px;
-    width: 100%;
-  }
-
-  body {
-    padding-top: 80px;
-  }
+.team-members .links a:hover {
+  background-color: #3e6fd0;
 }

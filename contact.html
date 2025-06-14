@@ -1,32 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>프로그래머스 실습 결과</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script src="contact.js" defer></script>
   </head>
   <body>
     <nav class="navbar">
-      <div class="container">
+      <div class="navbar-container">
         <a href="index.html" class="logo">portfolio</a>
-
         <ul class="nav">
-          <li><a href="/index.html">home</a></li>
           <li><a href="/main.html">Assignment</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/team.html">Team</a></li>
         </ul>
       </div>
     </nav>
-    <!-- 메인 섹션 -->
-    <section class="review-section">
-      <div class="container">
-        프로그래머스 결과 
-        </ul>
-      </div>
-    </section>
+
+    <main class="main-content">
+      <section id="section-c" class="slide-section">
+        
+        <div class="problem-box">
+          <h2>프로그래머스 문제 풀이</h2>
+          <button class="toggle-btn">롤케이크 자르기</button>
+          <div class="problem-content">
+            <img src="problem/problem1.png" alt=" 문제 1 이미지" />
+            <p>
+              철수는 토핑이 일렬로 올려진 롤케이크를 두 부분으로 잘라, 서로 서로
+              다른 토핑의 "종류 수"가 같도록 나누고 싶다. 토핑의 번호가 주어졌을
+              때, 잘랐을 때 두 조각의 토핑 종류 수가 같은 경우의 수를 구하는
+              문제이다. 이때 단순한 반복문은 시간 초과가 날 수 있으므로, 두 해시
+              배열을 이용해 효율적으로 구현해야 한다. 한 쪽으로 토핑을 하나씩
+              옮기면서 양쪽의 종류 수를 비교해 공평한 경우를 센다. 최대
+              1,000,000개의 토핑까지 입력될 수 있으므로 시간 복잡도는 O(n)으로
+              해결해야 한다.
+            </p>
+          </div>
+        <div class="problem-box">
+          <button class="toggle-btn">마법의 엘레베이터</button>
+          <div class="problem-content">
+            <img src="problem/problem2.png" alt=" 문제 2 이미지" />
+            <p>현재 층 수의 각 자릿수를 확인하며 1, 10, 100 단위로 처리한다.
+자릿수가 5보다 작으면 내리고, 6 이상이면 올려서 캐리한다.
+자릿수가 5일 땐, 다음 자릿수가 5 이상이면 올리고, 아니면 내린다.
+올리거나 내린 횟수를 누적해 최소 버튼(마법의 돌) 사용 횟수를 계산한다.
+이 과정을 storey가 0이 될 때까지 반복한다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-py" class="slide-section">
+        <h2>프로그래머스 문제 풀이</h2>
+        <div class="problem-box">
+          <button class="toggle-btn">자연수 뒤집어 배열로 만들기</button>
+          <div class="problem-content">
+            <img src="/problem/problem3.png" alt="문제 1 이미지" />
+            <p>solution 함수는 입력된 자연수 n을 10으로 나눈 나머지를 차례로 배열에 저장해 숫자를 뒤집은 형태로 만듭니다. 각 자리 숫자를 n이 0이 될 때까지 분리하며, 결과와 크기를 구조체에 담아 반환합니다. main 함수에서는 예시 숫자 12345를 넣어 결과 배열을 출력하고, 동적 할당한 메모리를 해제합니다.</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <button class="toggle-btn">문제  제목 </button>
+          <div class="problem-content">
+            
+            <p>문제 해결을 위한 아이디어를 구상하는 중입니다</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-java" class="slide-section">
+        <h2>프로그래머스 문제 풀이</h2>
+        <div class="problem-box">
+          <button class="toggle-btn">문제  제목</button>
+          <div class="problem-content">
+            
+            <p>문제 해결을 위한 아이디어를 구상하는 중입니다</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <button class="toggle-btn">문제  제목</button>
+          <div class="problem-content">
+            <p>문제 해결을 위한 아이디어를 구상하는 중입니다</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-js" class="slide-section">
+        <h2>프로그래머스 문제 풀이</h2>
+        <div class="problem-box">
+          <button class="toggle-btn">문제  제목</button>
+          <div class="problem-content">
+            <p>문제 해결을 위한 아이디어를 구상하는 중입니다</p>
+          </div>
+        </div>
+        <div class="problem-box">
+          <button class="toggle-btn"> 문제  제목</button>
+          <div class="problem-content">
+            <p>문제 해결을 위한 아이디어를 구상하는 중입니다</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

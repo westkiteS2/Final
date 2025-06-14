@@ -3,63 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assignment | WebDemo</title>
+    <title>과제 보기</title>
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
   </head>
   <body>
     <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="logo">portfolio</a>
-
+      <div class="navbar-container">
+        <a href="/index.html" class="logo">portfolio</a>
         <ul class="nav">
-          <li><a href="/index.html">home</a></li>
           <li><a href="/main.html">Assignment</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="/about.html">About</a></li>
           <li><a href="/contact.html">Contact</a></li>
           <li><a href="/team.html">Team</a></li>
         </ul>
       </div>
     </nav>
-
     <section class="assignment">
       <div class="container">
         <h2>과제 보기</h2>
 
-        <div class="month-box">
-          <h3>📘 3월</h3>
-          <ul>
-            <li>
-              <a href="https://web-programing1.vercel.app/" target="_blank"
-                >WebDemo</a
-              >
-            </li>
-          </ul>
+        <!-- 연도 + 월 선택 박스 -->
+        <div class="selector">
+          <label for="year-select">년도</label>
+          <select id="year-select">
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+
+          <label for="month-select">월</label>
+          <select id="month-select">
+            <option value="3월">3월</option>
+            <option value="4월">4월</option>
+            <option value="5월">5월</option>
+            <option value="6월">6월</option>
+          </select>
         </div>
 
-        <div class="month-box">
-          <h3>📙 4월</h3>
-          <ul>
-            <li>
-              <a href="https://webdemoassignment.vercel.app/" target="_blank"
-                >webdemoassignment</a
-              >
-              <a href="https://webmidterm.vercel.app/" target="_blank"
-                >webmidterm</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="month-box">
-          <h3>📗 5월</h3>
-          <p class="no-task">등록된 과제가 없습니다.</p>
-        </div>
-
-        <div class="month-box">
-          <h3>📕 6월</h3>
-          <p class="no-task">등록된 과제가 없습니다.</p>
-        </div>
+        <!-- 과제 리스트가 들어갈 곳 -->
+        <div id="assignment-list"></div>
       </div>
     </section>
   </body>
